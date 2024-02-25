@@ -45,6 +45,9 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify(incidents.filter((incident) => {
                 return incident.id === `MABOS00${id}`
             })));
+        } else {
+            res.writeHead(400, { 'Content-Type': 'text/plain' });
+            res.end('Invalid Request');
         }
     } else {
         // If the request is for an unsupported endpoint, send a not found response
@@ -54,5 +57,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Server running at http://${hostname}:${port}`);
 })
