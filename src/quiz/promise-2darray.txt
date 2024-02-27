@@ -1,1 +1,4 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+Previously we were logging the promise object and not the actual result value.
+To do that, we moved the log statement to inside a .then block
